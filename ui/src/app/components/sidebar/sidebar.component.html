@@ -1,0 +1,44 @@
+<div class="logo">
+  <a href="/" class="logo-mini">
+    <div class="logo-img">
+      <img src="/assets/logo.png"/>
+    </div>
+  </a>
+  <a href="/" class="simple-text logo-normal">
+    Ceva Hungary
+  </a>
+</div>
+<div class="sidebar-wrapper">
+  <ul class="nav">
+    <li class="nav-item {{isCurrentRoute('')}}">
+      <a class="nav-link" href="/">
+        <i class="fas fa-home"></i>
+        <p>Home</p>
+      </a>
+    </li>
+    <li [hidden]="!canAccess('USERS')" class="nav-item {{isCurrentRoute('users')}}">
+      <a class="nav-link" href="/users">
+        <i class="fas fa-users"></i>
+        <p>Users</p>
+      </a>
+    </li>
+    <li [hidden]="!canAccess('VEHICLES')" class="nav-item {{isCurrentRoute('vehicles')}}">
+      <a class="nav-link" href="/vehicles">
+        <i class="fas fa-car"></i>
+        <p>Vehicles</p>
+      </a>
+    </li>
+    <li [hidden]="!canAccess('RESERVATIONS')" class="nav-item {{isCurrentRoute('reservations')}}">
+      <a class="nav-link" href="/reservations">
+        <i class="fas fa-file-alt"></i>
+        <p>Reservations</p>
+      </a>
+    </li>
+    <li [hidden]="!canAccess('MY_RESERVATIONS')" class="nav-item {{isCurrentRoute('myreservations')}}">
+      <a class="nav-link" href="/myreservations">
+        <i class="fas fa-clipboard-check"></i>
+        <p>My Reservations</p>
+      </a>
+    </li>
+  </ul>
+</div>

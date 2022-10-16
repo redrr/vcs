@@ -1,0 +1,40 @@
+<button style="display: none" id="addVehicleModal" datasrc="" (click)="openForm(modalData)"></button>
+<ng-template #modalData let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title"></h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="onClickSubmit(model)" #heroForm="ngForm">
+      <div class="form-group">
+        <label for="licensePlateNumber" class="bmd-label-floating">License Plate Number</label>
+        <input type="text" class="form-control" id="licensePlateNumber" [(ngModel)]="model.licensePlateNumber" name="licensePlateNumber" #licensePlateNumber="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="manufacturer" class="bmd-label-floating">Manufacturer</label>
+        <input type="text" class="form-control" id="manufacturer" [(ngModel)]="model.manufacturer" name="manufacturer" #manufacturer="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="type" class="bmd-label-floating">Type</label>
+        <input type="text" class="form-control" id="type" [(ngModel)]="model.type" name="type" #type="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="chassisNumber" class="bmd-label-floating">Chassis Number</label>
+        <input type="text" class="form-control" id="chassisNumber" [(ngModel)]="model.chassisNumber" name="chassisNumber" #chassisNumber="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="color" class="bmd-label-floating">Color</label>
+        <input type="color" class="form-control" id="color" [(ngModel)]="model.color" name="color" #color="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="responsibleUser" class="bmd-label-floating">Responsible User</label>
+        <select class="form-control" id="responsibleUser" [(ngModel)]="model.responsibleUser" name="responsibleUser" #responsibleUser="ngModel">
+          <option *ngFor="let user of users" [value]='getIndexOf(user, users)'>{{user["fullName"]}}</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-sm btn-info">Save</button>
+    </form>
+  </div>
+</ng-template>

@@ -1,0 +1,38 @@
+<button style="display: none" id="addReservationModal" datasrc="" (click)="openForm(modalData)"></button>
+<ng-template #modalData let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title"></h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="onClickSubmit(model)" #heroForm="ngForm">
+      <div class="form-group">
+        <label for="user" class="bmd-label-floating">User</label>
+        <select class="form-control" id="user" [(ngModel)]="model.user" name="user" #user="ngModel">
+          <option *ngFor="let user of users" [value]='getIndexOf(user, users)'>{{user["fullName"]}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="vehicle" class="bmd-label-floating">Vehicle</label>
+        <select class="form-control" id="vehicle" [(ngModel)]="model.vehicle" name="vehicle" #vehicle="ngModel">
+          <option *ngFor="let vehicle of vehicles" [value]='getIndexOf(vehicle, vehicles)'>{{vehicleToString(vehicle)}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="placeOfDelegation" class="bmd-label-floating">Place Of Delegation</label>
+        <input type="text" class="form-control" id="placeOfDelegation" [(ngModel)]="model.placeOfDelegation" name="placeOfDelegation" #placeOfDelegation="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="startOfDelegation" class="bmd-label-floating">Start Of Delegation</label>
+        <input type="text" class="form-control" id="startOfDelegation" [(ngModel)]="model.startOfDelegation" name="startOfDelegation" #startOfDelegation="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="endOfDelegation" class="bmd-label-floating">End Of Delegation</label>
+        <input type="text" class="form-control" id="endOfDelegation" [(ngModel)]="model.endOfDelegation" name="endOfDelegation" #endOfDelegation="ngModel">
+      </div>
+      <button type="submit" class="btn btn-sm btn-info">Save</button>
+    </form>
+  </div>
+</ng-template>

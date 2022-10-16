@@ -1,0 +1,40 @@
+<button style="display: none" id="addUserModal" datasrc="" (click)="openForm(modalData)"></button>
+<ng-template #modalData let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title"></h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form name="form" (ngSubmit)="onClickSubmit(model)" #heroForm="ngForm">
+      <div class="form-group">
+        <label for="username" class="bmd-label-floating">Username</label>
+        <input type="text" class="form-control" id="username" [(ngModel)]="model.username" name="username" #username="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="email" class="bmd-label-floating">Email</label>
+        <input type="email" class="form-control" id="email" [(ngModel)]="model.email" name="email" #email="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="fullName" class="bmd-label-floating">Fullname</label>
+        <input type="text" class="form-control" id="fullName" [(ngModel)]="model.fullName" name="fullName" #fullName="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="idCardNumber" class="bmd-label-floating">ID Card Number</label>
+        <input type="text" class="form-control" id="idCardNumber" [(ngModel)]="model.idCardNumber" name="idCardNumber" #idCardNumber="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="birthDate" class="bmd-label-floating">Birthdate</label>
+        <input type="text" class="form-control" id="birthDate" [(ngModel)]="model.birthDate" name="birthDate" #birthDate="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="role" class="bmd-label-floating">Role</label>
+        <select class="form-control" id="role" [(ngModel)]="model.role" name="role" #role="ngModel">
+          <option *ngFor="let role of roles" [value]='getIndexOf(role, roles)'>{{role["name"]}}</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-sm btn-info">Save</button>
+    </form>
+  </div>
+</ng-template>

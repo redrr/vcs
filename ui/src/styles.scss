@@ -1,0 +1,58 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+@import "assets/material-dashboard/material-dashboard";
+
+.dt-buttons:nth-child(2) {
+  float: right;
+
+  button.btn-icon {
+    padding: 4px 16px;
+
+    span {
+      font-size: 16px;
+    }
+  }
+}
+
+.modal {
+  z-index: 10000!important;
+}
+
+table.dataTable tbody>tr.selected, table.dataTable tbody>tr>.selected {
+  background: #0288d1;
+}
+
+.form-control, .is-focused .form-control {
+  background-image: linear-gradient(to top, #0288d1 2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #d2d2d2 1px, rgba(210, 210, 210, 0) 1px);
+}
+
+.nav-pills.nav-pills-info .nav-item .nav-link.active, .nav-pills.nav-pills-info .nav-item .nav-link.active:focus, .nav-pills.nav-pills-info .nav-item .nav-link.active:hover {
+  background-color: #0288d1;
+  box-shadow: 0 4px 20px 0 rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(2 136 209 / 40%);
+  color: #fff;
+}
+
+.sidebar .nav .nav-item .nav-link {
+  padding: 10px!important;
+}
+
+span.badge.badge-lg {
+  font-size: 14px;
+  padding: 0.4em 0.6em;
+}
+
+.fc .fc-daygrid-event {
+  z-index: 6;
+  margin-top: 1px;
+  border-radius: 8px;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.page-item.active .page-link {
+  background-color: $brand-info!important;
+  border-color: $brand-info!important;
+  border-radius: 0.2rem;
+}
